@@ -15,11 +15,16 @@ class App extends Component {
     });
   };
 
+  remover = index => {
+    const { lista } = this.state;
+    lista.splice(index, 1);
+    this.setState({ lista });
+  };
   render() {
     return (
       <div className="App">
         <Formulario onAddTodo={this.addTodo} />
-        <Listagem lista={this.state.lista} />
+        <Listagem lista={this.state.lista} onClickRemove={this.remover} />
       </div>
     );
   }
